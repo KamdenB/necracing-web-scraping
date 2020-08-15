@@ -29,7 +29,7 @@ for href in filtered:
 
 with open("data.txt", "w+", encoding='utf-8') as file:
     for f in filter_res:
-        u = "{0}{1}".format(url, f)
+        u = "{}{}".format(url, f)
         print(u)
         data = requests.get(u)
         print(data)
@@ -37,5 +37,5 @@ with open("data.txt", "w+", encoding='utf-8') as file:
         results = []
         for p in soup.find_all('div', class_="paragraph"): # Not even getting this far for some reason
             r = str(" ".join(p.text.split()).replace('#', '').replace('Rank School Car  Laps Best Lap Time', ''))
-            file.write("{0}\n".format(r))
+            file.write("{}\n".format(r))
     file.close()
