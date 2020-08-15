@@ -1,6 +1,9 @@
 import re
 
+# pattern = re.compile("^([A-Z][0-9]+)+$")
+# pattern.match(string)
 def filter_match(arr):
+    # arr = [ re.compile(r"(?![0-9]\.)").match(item) for item in arr ] # remove [0-9].
     for a in range(len(arr)):
         if a+1 < len(arr) and re.compile(r"(\w+) (\w+)").match("{} {}".format(arr[a], arr[a+1])):
             a1 = ''.join(r'[A-Za-z]' for x in arr[a])
@@ -14,7 +17,6 @@ def filter_match(arr):
     result = []
     tempArray = []
     arr = [i for i in arr if i]
-    # TODO: Filter out -> N. (I.E. - 3. ) items
     for i in range(len(arr)):
         if len(tempArray) == 5:
             result.append(tempArray)
